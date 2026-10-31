@@ -1,7 +1,7 @@
 {
   "atomCode": "artifact-publish",
   "name": "Publish artifacts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Uploads build outputs to Artifactory or Nexus and reports the URLs.",
   "execution": {
     "packagePath": "artifact-publish.jar",
