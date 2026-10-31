@@ -1,0 +1,13 @@
+{
+  "name": "Publish artifacts",
+  "summary": "Uploads build outputs to Artifactory or Nexus and reports the URLs.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "artifacts",
+    "artifactory",
+    "nexus"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-artifact-publish"
+}

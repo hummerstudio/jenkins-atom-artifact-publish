@@ -1,0 +1,96 @@
+{
+  "atomCode": "artifact-publish",
+  "name": "Publish artifacts",
+  "version": "1.0.0",
+  "description": "Uploads build outputs to Artifactory or Nexus and reports the URLs.",
+  "execution": {
+    "packagePath": "artifact-publish.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp artifact-publish.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "provider": {
+      "label": "仓库类型（artifactory / nexus）",
+      "type": "vuex-input",
+      "default": "artifactory"
+    },
+    "baseUrl": {
+      "label": "仓库地址",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "repository": {
+      "label": "仓库名",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "username": {
+      "label": "用户名",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "password": {
+      "label": "密码 / API Key",
+      "type": "password",
+      "default": ""
+    },
+    "token": {
+      "label": "访问令牌（优先于用户名密码）",
+      "type": "password",
+      "default": ""
+    },
+    "files": {
+      "label": "要上传的文件（逗号分隔的 glob）",
+      "type": "vuex-input",
+      "default": "**/*.jar"
+    },
+    "pathTemplate": {
+      "label": "目标路径模板（{name} / {path} / {dir}）",
+      "type": "vuex-input",
+      "default": "{name}"
+    },
+    "properties": {
+      "label": "Artifactory 属性（k=v;k2=v2）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "timeoutSeconds": {
+      "label": "超时（秒）",
+      "type": "vuex-input",
+      "default": "60"
+    },
+    "failOnError": {
+      "label": "上传失败就让这一步失败",
+      "type": "checkbox",
+      "default": "true"
+    }
+  },
+  "output": {
+    "uploaded": {
+      "type": "string",
+      "description": "成功上传的文件数"
+    },
+    "failed": {
+      "type": "string",
+      "description": "失败的文件数（failOnError=false 时才可能非零）"
+    },
+    "bytes": {
+      "type": "string",
+      "description": "上传的字节数"
+    },
+    "first": {
+      "type": "string",
+      "description": "第一个文件的 URL"
+    },
+    "urls": {
+      "type": "string",
+      "description": "全部 URL（最多 20 行）"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}
