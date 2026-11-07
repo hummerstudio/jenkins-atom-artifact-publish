@@ -37,4 +37,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: artifact-publish-atom
-          path: atom/dist/artifact-publish/
+          path: atom/target/dist/artifact-publish/
