@@ -7,5 +7,5 @@
 `pathTemplate` 支持 `{name}`（文件名）、`{path}`（工作区相对路径）、`{dir}`（所在目录），所以既能平铺成 `1.0.0/app.jar`，也能保留 `com/acme/app/1.0.0/app.jar` 的 Maven 布局。
 
 ```bash
-./build.sh && ./tools/smoke.sh
+mvn verify    # 编译、打包到 dist/artifact-publish/，再跑 src/test/java/atom/ArtifactPublishIT.java
 ```
